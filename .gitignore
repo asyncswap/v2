@@ -15,3 +15,6 @@ deployments/
 dependencies/forge-std-1.16.0/
 dependencies/solmate-6.8.0/
 dependencies/uniswap-v4-core-4/
+
+# Bun/npm dependencies for script/*.ts helpers
+node_modules/

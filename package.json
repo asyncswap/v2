@@ -1,0 +1,9 @@
+{
+  "name": "@asyncswap/v2-scripts",
+  "private": true,
+  "description": "Runtime dependencies for the Foundry FFI helpers under script/ (hook salt mining).",
+  "type": "module",
+  "dependencies": {
+    "viem": "2.21.55"
+  }
+}

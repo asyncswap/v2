@@ -48,12 +48,12 @@
         "router": null
       },
       "deployment": {
-        "status": "config_only",
-        "script": null,
+        "status": "prepared",
+        "script": "script/deploy-arc.sh",
         "requires": [
-          "chain-specific deployment wrapper",
-          "configured RPC",
-          "deployment and pool configuration"
+          "RPC_URL_ARC in .env.deploy",
+          "USDC-funded deployer keystore",
+          "pool configuration after deploy"
         ]
       }
     },

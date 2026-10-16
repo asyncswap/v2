@@ -19,7 +19,10 @@ contract FFIHelper is Script, DeploymentsRegistry {
     address internal constant OWNER_DEFAULT = 0xb1F0982E02f9F71E60512fd47471d76610CcB556;
     address internal constant OWNER_ANVIL = 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266;
 
-    address internal OWNER = block.chainid == UniswapAddresses.CHAIN_ID_ANVIL ? OWNER_ANVIL : OWNER_DEFAULT;
+    /// @dev Deployer and hook owner. Anvil uses the first default account; elsewhere the
+    ///      `DEPLOY_OWNER` env var (set by the chain wrapper from the Foundry keystore) wins over the default.
+    address internal OWNER =
+        block.chainid == UniswapAddresses.CHAIN_ID_ANVIL ? OWNER_ANVIL : vm.envOr("DEPLOY_OWNER", OWNER_DEFAULT);
 
     /// @notice Resolves the PoolManager address: canonical chain → use canonical;
     ///         otherwise read the registry written by 00_DeployPoolManager.
